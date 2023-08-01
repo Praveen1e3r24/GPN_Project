@@ -9,15 +9,13 @@ if(done==0){
 	    hsp = 0;
 	}
 	x = x + hsp;
-
+	
 	// Vertical collision
 	if (place_meeting(x, y + vsp, oWall)) {
 		
 		if(vsp>0) 
 		{
-		done=1;
-		image_index=1;
-		
+			done=1;
 		}
 	    while (!place_meeting(x, y + sign(vsp), oWall)) {
 	        y = y + sign(vsp);
@@ -25,5 +23,8 @@ if(done==0){
 	    vsp = 0;
 	}
 	y = y + vsp;
-
+}
+if (image_index>=(image_number -1))
+{
+	image_speed = 0;
 }
