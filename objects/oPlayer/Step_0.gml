@@ -6,8 +6,6 @@ jumpKey = keyboard_check_pressed(vk_space);
 jumpHold = keyboard_check(vk_space);
 sprintKey = keyboard_check(vk_shift);
 crouchKey = keyboard_check(ord("C"));
-var onGround = place_meeting(x,y+10,oWall);
-var onWall = place_meeting(x-5,y,oWall) - place_meeting(x+5,y,oWall);
 
 jumpTimer = max(jumpTimer-1,0);
 mLock = max(mLock-1,0);
@@ -22,34 +20,11 @@ lKey=0;
 jumpKey=0;
 
 }
+var onGround = place_meeting(x,y+10,oWall);
+var onWall = place_meeting(x-5,y,oWall) - place_meeting(x+5,y,oWall);
 
 
-// Calculate Movement
-var move = key_right - key_left;
-hsp = move * walksp;
-vsp = vsp +grv ;
 
-if (place_meeting(x, y + 1, oWall) && key_jump) { // Corrected grouping with parentheses
-    vsp = -7;
-}
-
-// Horizontal collision
-if (place_meeting(x + hsp, y, oWall)) {
-    while (!place_meeting(x + sign(hsp), y, oWall)) {
-        x = x + sign(hsp);
-    }
-    hsp = 0;
-}
-x = x + hsp;
-
-// Vertical collision hello
-if (place_meeting(x, y + vsp, oWall)) {
-    while (!place_meeting(x, y + sign(vsp), oWall)) {
-        y = y + sign(vsp);
-    }
-    vsp = 0;
-}
-y = y + vsp;
 
 // Animation
 if (!place_meeting(x, y + 1, oWall)) {
@@ -78,3 +53,127 @@ if(hsp !=0){
 
 image_xscale=sign(hsp);
 }
+
+// -----------------------------------------
+//
+// Movement
+//
+// -----------------------------------------
+
+// Movement calculations
+if (sprintKey)
+{
+	spd = min(spd+0.5,sprintSpeed);
+}
+else
+{
+	spd = min(spd+1,walkSpeed);
+}
+
+if (onWall != 0)
+{
+	if ((sign(onWall)==1 && lKey)||(sign(onWall)==-1 && rKey))
+	{
+		vsp = min(vsp+1,5);
+	}
+	else
+	{
+		vsp+=grv;
+	}
+}
+else
+{
+	vsp+=grv;
+}
+
+// Jumping calculation
+if (onGround)
+{
+	jumpCount=0;
+}
+else
+{
+	if (jumpCount==0)
+	{
+		jumpCount = 1;
+	}
+}
+
+if (mLock <= 0)
+{
+	hsp = (rKey-lKey)*spd;
+	if (jumpKey && jumpCount<2)
+	{
+		jumpCount++;
+		vsp=jumpSpeed;
+		jumpTimer = jumpHoldFrames;
+		
+		// Wall Jumping calculation
+		if (onWall != 0)
+		{
+			vsp = -15;
+			hsp = onWall*spd;
+			mLock = 10;
+			jumpCount=0;
+		}
+	}
+	
+	// Crouching and sliding
+	if (crouchKey && place_meeting(x, y + 1, oWall))
+	{
+		if ( (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)) && slidingTimer==0 )
+		{
+			hsp = (sprintSpeed+5)*sign(hsp);
+			slidingTimer = 60;
+			mLock = slidingTimer;
+		}
+		else
+		{
+			sprite_index =  sPlayer;
+		}
+	}
+}
+
+
+if (slidingTimer>0)
+{
+	hsp = hsp-(0.15*sign(hsp));
+	sprite_index = sPlayerSlide;
+	image_xscale=sign(hsp);
+}
+
+
+// Jumping control
+if (!jumpHold) {jumpTimer=0}
+
+if (jumpTimer>0)
+{
+	vsp = jumpSpeed;
+	jumpTimer--;
+}
+
+
+
+//Vertical Collision
+if (place_meeting(x+hsp,y,oWall))
+{
+	while(!place_meeting(x+sign(hsp),y,oWall))
+	{
+		x = x + sign(hsp);
+	}
+	slidingTimer=0;
+	mlock = 0;
+	hsp=0;
+}
+x = x+hsp;
+
+// Horizontal Collision
+if (place_meeting(x,y+vsp,oWall))
+{
+	while(!place_meeting(x,y+sign(vsp),oWall))
+	{
+		y = y + sign(vsp);
+	}
+	vsp=0;
+}
+y = y+vsp;
