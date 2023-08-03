@@ -6,8 +6,8 @@ jumpKey = keyboard_check_pressed(vk_space);
 jumpHold = keyboard_check(vk_space);
 sprintKey = keyboard_check(vk_shift);
 crouchKey = keyboard_check(ord("C"));
-var onGround = place_meeting(x,y+10,obj_wall);
-var onWall = place_meeting(x-5,y,obj_wall) - place_meeting(x+5,y,obj_wall);
+var onGround = place_meeting(x,y+10,oWall);
+var onWall = place_meeting(x-5,y,oWall) - place_meeting(x+5,y,oWall);
 
 jumpTimer = max(jumpTimer-1,0);
 mLock = max(mLock-1,0);
