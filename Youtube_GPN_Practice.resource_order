@@ -32,6 +32,7 @@
     {"name":"oBullet","order":3,"path":"objects/oBullet/oBullet.yy",},
     {"name":"oLevelEnd","order":8,"path":"objects/oLevelEnd/oLevelEnd.yy",},
     {"name":"ScreenShake","order":1,"path":"scripts/ScreenShake/ScreenShake.yy",},
+    {"name":"sPlayerSlide","order":19,"path":"sprites/sPlayerSlide/sPlayerSlide.yy",},
     {"name":"oEnemy","order":4,"path":"objects/oEnemy/oEnemy.yy",},
     {"name":"sEnemyD","order":9,"path":"sprites/sEnemyD/sEnemyD.yy",},
     {"name":"sBullet","order":5,"path":"sprites/sBullet/sBullet.yy",},
@@ -45,5 +46,6 @@
     {"name":"sEnemy","order":6,"path":"sprites/sEnemy/sEnemy.yy",},
     {"name":"sBackground","order":15,"path":"sprites/sBackground/sBackground.yy",},
     {"name":"sEnemyR","order":7,"path":"sprites/sEnemyR/sEnemyR.yy",},
+    {"name":"sPlayerDJ","order":18,"path":"sprites/sPlayerDJ/sPlayerDJ.yy",},
   ],
 }

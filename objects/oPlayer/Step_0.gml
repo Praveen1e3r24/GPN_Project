@@ -1,16 +1,25 @@
 // Get Player Input
 if(hascontrol){
-key_left = keyboard_check(vk_left)  || keyboard_check(ord("A"));
-key_right = keyboard_check(vk_right)|| keyboard_check(ord("D"));
-key_jump = keyboard_check_pressed(vk_space);
+lKey = keyboard_check(vk_left)  || keyboard_check(ord("A"));
+rKey = keyboard_check(vk_right)|| keyboard_check(ord("D"));
+jumpKey = keyboard_check_pressed(vk_space);
+jumpHold = keyboard_check(vk_space);
+sprintKey = keyboard_check(vk_shift);
+crouchKey = keyboard_check(ord("C"));
+var onGround = place_meeting(x,y+10,obj_wall);
+var onWall = place_meeting(x-5,y,obj_wall) - place_meeting(x+5,y,obj_wall);
 
+jumpTimer = max(jumpTimer-1,0);
+mLock = max(mLock-1,0);
+dashTimer = max(dashTimer-1,0);
+slidingTimer = max(slidingTimer-1,0);
 
 }
 else
 {
-key_right=0;
-key_left=0;
-key_jump=0;
+rKey=0;
+lKey=0;
+jumpKey=0;
 
 }
 
@@ -33,7 +42,7 @@ if (place_meeting(x + hsp, y, oWall)) {
 }
 x = x + hsp;
 
-// Vertical collision
+// Vertical collision hello
 if (place_meeting(x, y + vsp, oWall)) {
     while (!place_meeting(x, y + sign(vsp), oWall)) {
         y = y + sign(vsp);
