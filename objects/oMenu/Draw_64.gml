@@ -5,7 +5,6 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
 
 
-
 for (var i =0; i <menu_items; i ++) {
     
 	
@@ -30,5 +29,4 @@ for (var i =0; i <menu_items; i ++) {
 	draw_text(xx,yy-offset,txt);
 	draw_set_color(col);
 	draw_text(xx,yy,txt);
-	
 }

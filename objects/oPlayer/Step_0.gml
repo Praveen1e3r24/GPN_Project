@@ -1,3 +1,5 @@
+/// @description Movement and animations
+
 // Get Player Input
 if(hascontrol){
 lKey = keyboard_check(vk_left)  || keyboard_check(ord("A"));
@@ -6,12 +8,12 @@ jumpKey = keyboard_check_pressed(vk_space);
 jumpHold = keyboard_check(vk_space);
 sprintKey = keyboard_check(vk_shift);
 crouchKey = keyboard_check(ord("C"));
-
+crouchPressed = keyboard_check_pressed(ord("C"));
 jumpTimer = max(jumpTimer-1,0);
 mLock = max(mLock-1,0);
 dashTimer = max(dashTimer-1,0);
 slidingTimer = max(slidingTimer-1,0);
-
+slideDelay = max(slideDelay-1,0);
 }
 else
 {
@@ -24,36 +26,55 @@ var onGround = place_meeting(x,y+10,oWall);
 var onWall = place_meeting(x-5,y,oWall) - place_meeting(x+5,y,oWall);
 
 
-
-
 // Animation
 if (!place_meeting(x, y + 1, oWall)) {
-    sprite_index = sPlayerA;
-    image_speed = 0;
-
-    if (sign(vsp) > 0)
-        image_index = 0;
+	if (jumpCount>1)
+	{
+		if (image_index>=4)
+		{
+			image_speed=0;
+		}
+		else
+		{
+			image_speed=1;
+			sprite_index = sPlayerDJ;
+		}
+	}
+	else
+	{
+		sprite_index = sPlayerANoHands;
+		image_speed = 0;
+	    if (sign(vsp) > 0)
+		{
+	        image_index = 0;
+		}
 		else if (sign(vsp) = 0)
-        image_index = 2;
-    else
-        image_index = 3;
-} 
+		{
+	        image_index = 1;
+		}
+	    else if (sign(vsp)<0)
+	    {
+	        image_index = 2;
+		}
+	}
+}
+
 else {
     image_speed = 1;
     if (hsp == 0) {
-        sprite_index = sPlayer;
+        sprite_index = sPlayerNoHands;
     } else {
-        sprite_index = sPlayerR;
+        sprite_index = sPlayerRNoHands;
     }
 }
-
-
 if(hsp !=0){
-
-
-image_xscale=sign(hsp);
+	image_xscale=sign(hsp);
 }
-
+var mouseMove = sign(mouse_x -x);
+if (mouseMove!=0)
+{
+	image_xscale=mouseMove;
+}
 // -----------------------------------------
 //
 // Movement
@@ -74,9 +95,10 @@ if (onWall != 0)
 {
 	if ((sign(onWall)==1 && lKey)||(sign(onWall)==-1 && rKey))
 	{
+		sprite_index = sPlayerW;
 		vsp = min(vsp+1,5);
 	}
-	else
+	else 
 	{
 		vsp+=grv;
 	}
@@ -99,49 +121,61 @@ else
 	}
 }
 
+
 if (mLock <= 0)
 {
 	hsp = (rKey-lKey)*spd;
-	if (jumpKey && jumpCount<2)
+	if (jumpKey)
 	{
-		jumpCount++;
-		vsp=jumpSpeed;
-		jumpTimer = jumpHoldFrames;
+		if (jumpCount<2)
+		{
+			jumpCount++;
+			vsp=jumpSpeed;
+			jumpTimer = jumpHoldFrames;
+		}
 		
 		// Wall Jumping calculation
 		if (onWall != 0)
 		{
-			vsp = -15;
+			vsp = -10;
 			hsp = onWall*spd;
 			mLock = 10;
 			jumpCount=0;
 		}
 	}
-	
-	// Crouching and sliding
-	if (crouchKey && place_meeting(x, y + 1, oWall))
+}
+
+// Crouching and sliding
+//if (crouchPressed && onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
+//{
+//	hsp = (rKey-lKey)*spd;
+//	if (croucslidingTimer == 0 && slideDelay == 0) {
+		
+//        slidingTimer = 60; 
+//		slideDelay = 90; 
+//	}
+//}
+
+//if (slidingTimer>0 && crouchKey && onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
+//{
+//	hsp = hsp *5*(slidingTimer/100);
+//    sprite_index = sPlayerSlide;
+//    image_xscale = sign(hsp);
+//}
+if (onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
+{
+	hsp = (rKey-lKey)*spd;
+	if (crouchPressed && slidingTimer == 0 && slideDelay == 0) {
+		
+        slidingTimer = 60; 
+		slideDelay = 90; 
+	}
+	if (slidingTimer>0 && crouchKey)
 	{
-		if ( (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)) && slidingTimer==0 )
-		{
-			hsp = (sprintSpeed+5)*sign(hsp);
-			slidingTimer = 60;
-			mLock = slidingTimer;
-		}
-		else
-		{
-			sprite_index =  sPlayer;
-		}
+		hsp = hsp *6*(slidingTimer/100);
+		sprite_index = sPlayerSlide;
 	}
 }
-
-
-if (slidingTimer>0)
-{
-	hsp = hsp-(0.15*sign(hsp));
-	sprite_index = sPlayerSlide;
-	image_xscale=sign(hsp);
-}
-
 
 // Jumping control
 if (!jumpHold) {jumpTimer=0}
@@ -151,8 +185,6 @@ if (jumpTimer>0)
 	vsp = jumpSpeed;
 	jumpTimer--;
 }
-
-
 
 //Vertical Collision
 if (place_meeting(x+hsp,y,oWall))
@@ -177,3 +209,4 @@ if (place_meeting(x,y+vsp,oWall))
 	vsp=0;
 }
 y = y+vsp;
+

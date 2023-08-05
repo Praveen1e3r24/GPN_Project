@@ -18,9 +18,25 @@ sprintSpeed = 6;
 jumpSpeed = -6;
 jumpTimer = 0;
 slidingTimer = 0;
+slideDelay = 0;
 jumpHoldFrames = 15;
 jumpCount = 0;
 mLock = 0;
 dashTimer = 0;
 spd = 0;
-sprite_index = sPlayer;
+
+// Health
+hp = 1;
+max_hp = 5;
+flash = 0;
+heathbarWidth = 186;
+heathbarHeight = 16;
+heathbarX = 170 - (heathbarWidth/2);
+heathbarY = 36
+
+// Sprites
+idleSprite = sPlayerNoHands;
+runSprite = sPlayerRNoHands;
+jumpSprite = sPlayerANoHands;
+
+sprite_index = sPlayerNoHands;
