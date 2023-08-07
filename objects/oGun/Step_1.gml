@@ -2,7 +2,13 @@
 
 
 x=oPlayer.x;
-y=oPlayer.y;
+y=oPlayer.y-20;
+
+if (oPlayer.sprite_index==sPlayerSlide)
+{
+	x=oPlayer.x+10;
+	y=oPlayer.y+30;
+}
 
 image_angle = point_direction(x,y,mouse_x,mouse_y);
 
@@ -15,7 +21,7 @@ if(mouse_check_button(mb_left) && firingdelay<0)
 {
 
     recoil=4;
-	firingdelay=10;
+	firingdelay=delay;
 	ScreenShake(2,10);
 	with(instance_create_layer(x,y,"Bullets",oBullet))
 	{

@@ -21,3 +21,7 @@ menu[0]="Quit";
 
 menu_items= array_length(menu);
 menu_cursor =2;
+
+titleX = camera_get_view_width(view_camera[0])/2;
+titleY = camera_get_view_height(view_camera[0])/2;
+titleTxt = "NeuroScape";

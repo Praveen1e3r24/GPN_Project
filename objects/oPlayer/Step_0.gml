@@ -2,27 +2,27 @@
 
 // Get Player Input
 if(hascontrol){
-lKey = keyboard_check(vk_left)  || keyboard_check(ord("A"));
-rKey = keyboard_check(vk_right)|| keyboard_check(ord("D"));
-jumpKey = keyboard_check_pressed(vk_space);
-jumpHold = keyboard_check(vk_space);
-sprintKey = keyboard_check(vk_shift);
-crouchKey = keyboard_check(ord("C"));
-crouchPressed = keyboard_check_pressed(ord("C"));
-jumpTimer = max(jumpTimer-1,0);
-mLock = max(mLock-1,0);
-dashTimer = max(dashTimer-1,0);
-slidingTimer = max(slidingTimer-1,0);
-slideDelay = max(slideDelay-1,0);
+	lKey = keyboard_check(vk_left)  || keyboard_check(ord("A"));
+	rKey = keyboard_check(vk_right)|| keyboard_check(ord("D"));
+	jumpKey = keyboard_check_pressed(vk_space);
+	jumpHold = keyboard_check(vk_space);
+	sprintKey = keyboard_check(vk_shift);
+	crouchKey = keyboard_check(ord("C"));
+	crouchPressed = keyboard_check_pressed(ord("C"));
+	jumpTimer = max(jumpTimer-1,0);
+	mLock = max(mLock-1,0);
+	dashTimer = max(dashTimer-1,0);
+	slidingTimer = max(slidingTimer-1,0);
+	slideDelay = max(slideDelay-1,0);
 }
 else
 {
-rKey=0;
-lKey=0;
-jumpKey=0;
-
+	rKey=0;
+	lKey=0;
+	jumpKey=0;
 }
-var onGround = place_meeting(x,y+10,oWall);
+
+var onGround = place_meeting(x,y+1,oWall);
 var onWall = place_meeting(x-5,y,oWall) - place_meeting(x+5,y,oWall);
 
 
@@ -146,22 +146,7 @@ if (mLock <= 0)
 }
 
 // Crouching and sliding
-//if (crouchPressed && onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
-//{
-//	hsp = (rKey-lKey)*spd;
-//	if (croucslidingTimer == 0 && slideDelay == 0) {
-		
-//        slidingTimer = 60; 
-//		slideDelay = 90; 
-//	}
-//}
 
-//if (slidingTimer>0 && crouchKey && onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
-//{
-//	hsp = hsp *5*(slidingTimer/100);
-//    sprite_index = sPlayerSlide;
-//    image_xscale = sign(hsp);
-//}
 if (onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
 {
 	hsp = (rKey-lKey)*spd;

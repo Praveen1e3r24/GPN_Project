@@ -8,6 +8,27 @@ if (hp<=1)
 	draw_sprite_stretched(sHealthOverlay,0,0,0,camera_get_view_width(view_camera[0]),camera_get_view_height(view_camera[0]))
 }
 
+if (room == Room2)
+{
+	objText = "Objective: Go to the city's labatory";
+}
+
+cursor_sprite = sCursor;
+window_set_cursor(cr_none);
+
+draw_set_font(fObjective)
+draw_set_halign(fa_left)
+draw_set_color(c_black);
+draw_text(objX-2,objY,objText);
+draw_text(objX+2,objY,objText);
+draw_text(objX,objY+2,objText);
+draw_text(objX,objY-2,objText);
+draw_set_color(c_white)
+draw_text(objX,objY,objText);
+
+
+
+
 
 
 

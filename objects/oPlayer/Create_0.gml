@@ -32,11 +32,18 @@ flash = 0;
 heathbarWidth = 186;
 heathbarHeight = 16;
 heathbarX = 170 - (heathbarWidth/2);
-heathbarY = 36
+heathbarY = 30;
+
+// Objective
+objText = "";
+objX = 35;
+objY = 100;
 
 // Sprites
 idleSprite = sPlayerNoHands;
 runSprite = sPlayerRNoHands;
 jumpSprite = sPlayerANoHands;
+
+
 
 sprite_index = sPlayerNoHands;
