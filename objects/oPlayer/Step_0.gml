@@ -36,13 +36,17 @@ if (!place_meeting(x, y + 1, oWall)) {
 		}
 		else
 		{
+			
+			  instance_deactivate_object(oGun);
 			image_speed=1;
 			sprite_index = sPlayerDJ;
 		}
 	}
 	else
 	{
-		sprite_index = sPlayerANoHands;
+		
+		instance_activate_object(oGun);
+		sprite_index = sPlayerA;
 		image_speed = 0;
 	    if (sign(vsp) > 0)
 		{
@@ -60,16 +64,27 @@ if (!place_meeting(x, y + 1, oWall)) {
 }
 
 else {
+	if(sprite_index==sPlayerA)
+	{
+	repeat(5){
+	
+	with(instance_create_layer(x,bbox_bottom,"Bullets",oDust))
+			{
+			vsp=0;
+			}
+	}
+	}
+	
     image_speed = 1;
     if (hsp == 0) {
+		instance_activate_object(oGun);
         sprite_index = sPlayerNoHands;
     } else {
-        sprite_index = sPlayerRNoHands;
+		instance_activate_object(oGun);
+        sprite_index = sPlayerR;
     }
 }
-if(hsp !=0){
-	image_xscale=sign(hsp);
-}
+
 var mouseMove = sign(mouse_x -x);
 if (mouseMove!=0)
 {
@@ -84,6 +99,8 @@ if (mouseMove!=0)
 // Movement calculations
 if (sprintKey)
 {
+	  instance_deactivate_object(oGun);
+	  sprite_index=sPlayerR;
 	spd = min(spd+0.5,sprintSpeed);
 }
 else
@@ -96,6 +113,7 @@ if (onWall != 0)
 	if ((sign(onWall)==1 && lKey)||(sign(onWall)==-1 && rKey))
 	{
 		sprite_index = sPlayerW;
+		  instance_deactivate_object(oGun);
 		vsp = min(vsp+1,5);
 	}
 	else 
@@ -172,6 +190,8 @@ if (onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
 	}
 	if (slidingTimer>0 && crouchKey)
 	{
+		
+		 instance_deactivate_object(oGun);
 		hsp = hsp *6*(slidingTimer/100);
 		sprite_index = sPlayerSlide;
 	}
@@ -210,3 +230,6 @@ if (place_meeting(x,y+vsp,oWall))
 }
 y = y+vsp;
 
+if(hsp !=0){
+	image_xscale=sign(hsp);
+}

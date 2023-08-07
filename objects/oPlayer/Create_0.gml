@@ -40,3 +40,5 @@ runSprite = sPlayerRNoHands;
 jumpSprite = sPlayerANoHands;
 
 sprite_index = sPlayerNoHands;
+
+

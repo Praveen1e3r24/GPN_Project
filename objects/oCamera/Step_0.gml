@@ -8,6 +8,13 @@ if(instance_exists(oPlayer))
 
 		  xTo=follow.x;
 		  yTo=follow.y;
+		  
+		  if((follow).object_index ==oPDead)
+		  {
+			  
+			  x=xTo;
+			  y=yTo;
+		  }
 
 }
 

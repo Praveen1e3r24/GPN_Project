@@ -20,4 +20,8 @@ menu[0]="Quit";
 
 
 menu_items= array_length(menu);
+
+menu_top=menu_y-((menu_itemheight*1.5)*menu_items);
+
+
 menu_cursor =2;
