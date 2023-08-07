@@ -47,3 +47,5 @@ jumpSprite = sPlayerANoHands;
 
 
 sprite_index = sPlayerNoHands;
+
+
