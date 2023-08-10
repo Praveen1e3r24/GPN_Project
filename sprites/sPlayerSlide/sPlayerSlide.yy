@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sPlayerSlide",
-  "bbox_bottom": 94,
-  "bbox_left": 31,
-  "bbox_right": 77,
-  "bbox_top": 78,
+  "bbox_bottom": 89,
+  "bbox_left": 15,
+  "bbox_right": 80,
+  "bbox_top": 75,
   "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d8220b64-da51-4b52-ad17-01775167e879",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"56fc8e54-538b-48b8-b196-6d4e14195cad",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 96,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"21d17189-2175-497d-bff4-227e30974abd","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"42395527-318f-4a1e-889e-9acf7fbb4b3b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": {
     "resourceType": "GMNineSliceData",
@@ -77,7 +77,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d8220b64-da51-4b52-ad17-01775167e879","path":"sprites/sPlayerSlide/sPlayerSlide.yy",},},},"Disabled":false,"id":"13a0b461-f22e-4935-b40d-73ef72281f2c","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"56fc8e54-538b-48b8-b196-6d4e14195cad","path":"sprites/sPlayerSlide/sPlayerSlide.yy",},},},"Disabled":false,"id":"46059f5d-d91c-4367-aabc-c5df26bc08f3","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -1,5 +1,6 @@
 /// @description Movement and animations
 
+damageTimer--;
 // Get Player Input
 if(hascontrol){
 	lKey = keyboard_check(vk_left)  || keyboard_check(ord("A"));
@@ -26,27 +27,24 @@ var onGround = place_meeting(x,y+1,oWall);
 var onWall = place_meeting(x-5,y,oWall) - place_meeting(x+5,y,oWall);
 
 
-// Animation
 if (!place_meeting(x, y + 1, oWall)) {
-	if (jumpCount>1)
+	if (jumpCount==2)
 	{
 		if (image_index>=4)
 		{
-			image_speed=0;
+			gunavail = true;
+			jumpCount++;
 		}
 		else
-		{
-			
-			  instance_deactivate_object(oGun);
+		{   gunavail=false;
 			image_speed=1;
 			sprite_index = sPlayerDJ;
 		}
 	}
 	else
 	{
-		
 		instance_activate_object(oGun);
-		sprite_index = sPlayerA;
+		sprite_index = sPlayerANoHands;
 		image_speed = 0;
 	    if (sign(vsp) > 0)
 		{
@@ -64,32 +62,27 @@ if (!place_meeting(x, y + 1, oWall)) {
 }
 
 else {
-	if(sprite_index==sPlayerA)
+	if(sprite_index==sPlayerANoHands)
 	{
 	repeat(5){
-	
 	with(instance_create_layer(x,bbox_bottom,"Bullets",oDust))
 			{
 			vsp=0;
 			}
 	}
 	}
-	
+	mask_index = sPlayerRNoHands;
     image_speed = 1;
     if (hsp == 0) {
-		instance_activate_object(oGun);
+		gunavail = true;
         sprite_index = sPlayerNoHands;
     } else {
-		instance_activate_object(oGun);
-        sprite_index = sPlayerR;
+		gunavail = true;
+        sprite_index = sPlayerRNoHands;
     }
 }
 
-var mouseMove = sign(mouse_x -x);
-if (mouseMove!=0)
-{
-	image_xscale=mouseMove;
-}
+
 // -----------------------------------------
 //
 // Movement
@@ -97,10 +90,10 @@ if (mouseMove!=0)
 // -----------------------------------------
 
 // Movement calculations
-if (sprintKey)
+if (sprintKey && onGround && (lKey || rKey))
 {
-	  instance_deactivate_object(oGun);
-	  sprite_index=sPlayerR;
+	gunavail = false;
+	sprite_index=sPlayerR;
 	spd = min(spd+0.5,sprintSpeed);
 }
 else
@@ -108,12 +101,14 @@ else
 	spd = min(spd+1,walkSpeed);
 }
 
-if (onWall != 0)
+
+
+if (onWall != 0 && !onGround)
 {
 	if ((sign(onWall)==1 && lKey)||(sign(onWall)==-1 && rKey))
 	{
 		sprite_index = sPlayerW;
-		  instance_deactivate_object(oGun);
+		gunavail = false;
 		vsp = min(vsp+1,5);
 	}
 	else 
@@ -121,10 +116,16 @@ if (onWall != 0)
 		vsp+=grv;
 	}
 }
+else if (!onGround && sprite_index == sPlayerANoHands)
+{
+	gunavail = true;	
+	vsp+=grv;
+}
 else
 {
 	vsp+=grv;
 }
+
 
 // Jumping calculation
 if (onGround)
@@ -150,6 +151,7 @@ if (mLock <= 0)
 			jumpCount++;
 			vsp=jumpSpeed;
 			jumpTimer = jumpHoldFrames;
+			slidingTimer = 0;
 		}
 		
 		// Wall Jumping calculation
@@ -164,22 +166,28 @@ if (mLock <= 0)
 }
 
 // Crouching and sliding
-
 if (onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
 {
 	hsp = (rKey-lKey)*spd;
 	if (crouchPressed && slidingTimer == 0 && slideDelay == 0) {
-		
+		y-=5;
         slidingTimer = 60; 
-		slideDelay = 90; 
 	}
 	if (slidingTimer>0 && crouchKey)
 	{
-		
-		 instance_deactivate_object(oGun);
-		hsp = hsp *6*(slidingTimer/100);
-		sprite_index = sPlayerSlide;
+		hsp = hsp *5*(slidingTimer/100);
+		sprite_index = sPlayerSlide
+		mask_index = sPlayerSlide;
 	}
+}
+else if (!crouchKey && place_meeting(x,y-1,oWall))
+	{
+		sprite_index = sPlayerSlide
+		mask_index = sPlayerSlide;
+	}
+else
+{
+	mask_index = sPlayerRNoHands;
 }
 
 // Jumping control
@@ -191,7 +199,7 @@ if (jumpTimer>0)
 	jumpTimer--;
 }
 
-//Vertical Collision
+//Horizontal Collision
 if (place_meeting(x+hsp,y,oWall))
 {
 	while(!place_meeting(x+sign(hsp),y,oWall))
@@ -199,12 +207,12 @@ if (place_meeting(x+hsp,y,oWall))
 		x = x + sign(hsp);
 	}
 	slidingTimer=0;
-	mlock = 0;
+	mLock = 0;
 	hsp=0;
 }
 x = x+hsp;
 
-// Horizontal Collision
+// Vertical Collision
 if (place_meeting(x,y+vsp,oWall))
 {
 	while(!place_meeting(x,y+sign(vsp),oWall))
@@ -217,4 +225,10 @@ y = y+vsp;
 
 if(hsp !=0){
 	image_xscale=sign(hsp);
+}
+
+var mouseMove = sign(mouse_x -x);
+if (mouseMove!=0)
+{
+	image_xscale=mouseMove;
 }

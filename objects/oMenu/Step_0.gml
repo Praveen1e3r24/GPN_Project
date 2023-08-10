@@ -29,6 +29,10 @@ if(menu_control)
 	menu_committed = menu_cursor;
 	ScreenShake(4,30);
 	menu_control =false;
+	audio_sound_gain(music, .5,2500);
+	audio_sound_gain(music, 0, 2500);
+
+	
 	}
 	
 	var mouse_y_gui = device_mouse_y_to_gui(0);
@@ -42,7 +46,8 @@ if(menu_control)
 	    menu_committed = menu_cursor;
 	    ScreenShake(4,30);
 	    menu_control =false;
-		
+		audio_sound_gain(music, .5, 2500);
+		audio_sound_gain(music, 0, 2500);
 		}
 		
 		

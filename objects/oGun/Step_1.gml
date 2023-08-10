@@ -2,7 +2,7 @@
 
 
 x=oPlayer.x;
-y=oPlayer.y-20;
+y=oPlayer.y-1;
 
 if (oPlayer.sprite_index==sPlayerSlide)
 {
@@ -17,13 +17,14 @@ recoil=max(0,recoil-1);
 
 
 
-if(mouse_check_button(mb_left) && firingdelay<0)
+if(mouse_check_button(mb_left) && firingdelay<0 && oPlayer.gunavail == true)
 {
 
     recoil=4;
 	firingdelay=delay;
 	ScreenShake(2,10);
-		audio_play_sound(snBullet,1,false);
+	
+	audio_play_sound(snBullet,1,false);
 	with(instance_create_layer(x,y,"Bullets",oBullet))
 	{
 	spd=25;

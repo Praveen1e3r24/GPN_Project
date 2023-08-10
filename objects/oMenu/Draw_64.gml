@@ -31,12 +31,14 @@ for (var i =0; i <menu_items; i ++) {
 }
 
 
-draw_set_font(fTitle)
-draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text(titleX-10,titleY,titleTxt);
-draw_text(titleX+10,titleY,titleTxt);
-draw_text(titleX,titleY+10,titleTxt);
-draw_text(titleX,titleY-10,titleTxt);
-draw_set_color(c_white)
-draw_text(titleX,titleY,titleTxt);
+//draw_set_font(fTitle)
+//draw_set_halign(fa_center);
+//draw_set_color(c_black);
+//draw_text(titleX-10,titleY,titleTxt);
+//draw_text(titleX+10,titleY,titleTxt);
+//draw_text(titleX,titleY+10,titleTxt);
+//draw_text(titleX,titleY-10,titleTxt);
+//draw_set_color(c_white)
+//draw_text(titleX,titleY,titleTxt);
+
+draw_sprite(sTitle,0,titleX,titleY);

@@ -15,5 +15,4 @@ if(letters>=length) &&(keyboard_check(vk_anykey))
 	
 instance_destroy();
 with(oCamera) follow =oPlayer;
-
 }
