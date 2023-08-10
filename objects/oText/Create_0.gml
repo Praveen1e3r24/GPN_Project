@@ -1,8 +1,8 @@
-spd=0.25;
+spd=0.3;
 letters=0;
-text="This is a test string!\nSecond line!"
+text=""
 length=string_length(text);
-text_current="";   
+text_current="i";   
 w=0;
 h=0;
 border=10;

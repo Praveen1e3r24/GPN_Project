@@ -26,13 +26,15 @@ dashTimer = 0;
 spd = 0;
 
 // Health
-hp = 1;
+hp = 5;
 max_hp = 5;
 flash = 0;
 heathbarWidth = 186;
 heathbarHeight = 16;
 heathbarX = 170 - (heathbarWidth/2);
 heathbarY = 30;
+damageTimer = 0;
+
 
 // Objective
 objText = "";
@@ -44,8 +46,8 @@ idleSprite = sPlayerNoHands;
 runSprite = sPlayerRNoHands;
 jumpSprite = sPlayerANoHands;
 
-
-
 sprite_index = sPlayerNoHands;
+
+gunavail = true;
 
 

@@ -3,7 +3,7 @@ vsp=-4;
 grv=0.2;
 done=0;
 
-
+deathTimer = 70;
 
 
 ScreenShake(6,60);

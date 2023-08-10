@@ -41,13 +41,10 @@ if(sign(vsp)>0) image_index=1; else image_index=0;
 
 }
 else{
-
 grounded=true;
 image_speed=1;
 if(hsp==0){sprite_index=sEnemy;}
 else{ sprite_index=sEnemyR;}
-
-
 }
 
 

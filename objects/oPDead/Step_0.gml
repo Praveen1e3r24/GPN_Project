@@ -1,6 +1,7 @@
+deathTimer--
+
 if(done==0){
 	vsp = vsp +grv ;
-
 	// Horizontal collision
 	if (place_meeting(x + hsp, y, oWall)) {
 	    while (!place_meeting(x + sign(hsp), y, oWall)) {
@@ -13,10 +14,12 @@ if(done==0){
 	// Vertical collision
 	if (place_meeting(x, y + vsp, oWall)) {
 		
+		
 		if(vsp>0) 
 		{
 			done=1;
 			alarm[0]=60;
+			image_speed=1;
 		}
 	    while (!place_meeting(x, y + sign(vsp), oWall)) {
 	        y = y + sign(vsp);
@@ -28,4 +31,8 @@ if(done==0){
 if (image_index>=(image_number -1))
 {
 	image_speed = 0;
+}
+if (deathTimer == 0)
+{
+	alarm[0]=60;
 }
