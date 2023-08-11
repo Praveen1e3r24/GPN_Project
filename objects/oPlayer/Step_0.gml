@@ -1,6 +1,7 @@
 /// @description Movement and animations
 
 damageTimer--;
+stepTimer--;
 // Get Player Input
 if(hascontrol){
 	lKey = keyboard_check(vk_left)  || keyboard_check(ord("A"));
@@ -38,7 +39,7 @@ if (!place_meeting(x, y + 1, oWall)) {
 		else
 		{   gunavail=false;
 			image_speed=1;
-			sprite_index = sPlayerDJ;
+			sprite_index = sPlayerDJ
 		}
 	}
 	else
@@ -79,6 +80,11 @@ else {
     } else {
 		gunavail = true;
         sprite_index = sPlayerRNoHands;
+		if (stepTimer<=0)
+		{
+			audio_play_sound(snStepping,1,false);
+			stepTimer = 10;
+		}
     }
 }
 
@@ -179,17 +185,20 @@ if (onGround && (((hsp>=4)&&rKey) || ((hsp<=-4)&&lKey)))
 		sprite_index = sPlayerSlide
 		mask_index = sPlayerSlide;
 	}
+	
 }
-else if (!crouchKey && place_meeting(x,y-1,oWall))
-	{
-		sprite_index = sPlayerSlide
-		mask_index = sPlayerSlide;
-	}
+
 else
 {
 	mask_index = sPlayerRNoHands;
 }
 
+if (!crouchKey && place_meeting(x,y-5,oWall) && onGround)
+{
+	sprite_index = sPlayerSlide
+	mask_index = sPlayerSlide;
+}
+	
 // Jumping control
 if (!jumpHold) {jumpTimer=0}
 

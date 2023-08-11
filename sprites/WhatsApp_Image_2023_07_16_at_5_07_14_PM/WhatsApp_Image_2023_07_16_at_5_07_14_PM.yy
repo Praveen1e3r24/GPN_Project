@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4b993b69-2674-4ad8-a4c9-ffcedfcd7593",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"56267d5d-e658-490c-a32d-d71b5ecc408b",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 911,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ba51cf4f-a987-433b-a2ad-8e7307a2a6d2","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"bd404c18-fdce-459e-959c-8ae5ea628092","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4b993b69-2674-4ad8-a4c9-ffcedfcd7593","path":"sprites/WhatsApp_Image_2023_07_16_at_5_07_14_PM/WhatsApp_Image_2023_07_16_at_5_07_14_PM.yy",},},},"Disabled":false,"id":"330d4dfe-cda7-467e-ad1e-337c27aa43f7","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"56267d5d-e658-490c-a32d-d71b5ecc408b","path":"sprites/WhatsApp_Image_2023_07_16_at_5_07_14_PM/WhatsApp_Image_2023_07_16_at_5_07_14_PM.yy",},},},"Disabled":false,"id":"0b2e11de-323d-4508-b178-43145767c56a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -16,7 +16,9 @@ if (sign(hsp!=0))  {image_xscale=sign(hsp)*other.size;
 
 
 
-
+with(mygun) instance_destroy()
 instance_destroy();
 
 }
+
+
