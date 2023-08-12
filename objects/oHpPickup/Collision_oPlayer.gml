@@ -8,8 +8,10 @@ with(other)
 	{
 		collect = true;
 		hp++;
+		audio_play_sound(snHealed, 11, false)
 	}
 }
+
 if (collect==true)
 {
 	instance_destroy();

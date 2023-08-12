@@ -1,10 +1,5 @@
 //hsp=0;
 //vsp=0;
-//grv=0.3;
-//walksp=4;
-//controller=0;
-//hascontrol=true;
-
 // Player control
 controller=0;
 hascontrol=true;
@@ -49,5 +44,12 @@ jumpSprite = sPlayerANoHands;
 sprite_index = sPlayerNoHands;
 
 gunavail = true;
+walking = false;
 
+stepTimer = 0;
 
+music = audio_play_sound(snGameMusic, 1, true);
+audio_sound_gain(music, 0, 0);
+audio_sound_gain(music, 0.5, 5000);
+
+target = room

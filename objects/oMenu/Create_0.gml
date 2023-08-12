@@ -29,5 +29,5 @@ menu_top=menu_y-((menu_itemheight*1.5)*menu_items);
 
 music = audio_play_sound(snMenuMusic, 10, true);
 audio_sound_gain(music, 0, 0);
-audio_sound_gain(music, 1, 5000);
+audio_sound_gain(music, 0.3, 5000);
 

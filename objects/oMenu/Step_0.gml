@@ -29,8 +29,8 @@ if(menu_control)
 	menu_committed = menu_cursor;
 	ScreenShake(4,30);
 	menu_control =false;
-	audio_sound_gain(music, .5,2500);
-	audio_sound_gain(music, 0, 2500);
+	audio_sound_gain(music, .3,1000);
+	audio_sound_gain(music, 0, 1000);
 
 	
 	}
@@ -46,8 +46,8 @@ if(menu_control)
 	    menu_committed = menu_cursor;
 	    ScreenShake(4,30);
 	    menu_control =false;
-		audio_sound_gain(music, .5, 2500);
-		audio_sound_gain(music, 0, 2500);
+		audio_sound_gain(music, .3, 1000);
+		audio_sound_gain(music, 0, 1000);
 		}
 		
 		
