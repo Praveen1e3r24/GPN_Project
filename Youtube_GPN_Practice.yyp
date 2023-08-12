@@ -132,7 +132,6 @@
     {"id":{"name":"_19","path":"sprites/_19/_19.yy",},},
     {"id":{"name":"_9","path":"sprites/_9/_9.yy",},},
     {"id":{"name":"sStreetBuildings","path":"sprites/sStreetBuildings/sStreetBuildings.yy",},},
-    {"id":{"name":"Room4","path":"rooms/Room4/Room4.yy",},},
     {"id":{"name":"oLevelEnd","path":"objects/oLevelEnd/oLevelEnd.yy",},},
     {"id":{"name":"ScreenShake","path":"scripts/ScreenShake/ScreenShake.yy",},},
     {"id":{"name":"sPlayerSlide","path":"sprites/sPlayerSlide/sPlayerSlide.yy",},},
@@ -213,7 +212,6 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"rMenu","path":"rooms/rMenu/rMenu.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"Room4","path":"rooms/Room4/Room4.yy",},},
     {"roomId":{"name":"copypaste","path":"rooms/copypaste/copypaste.yy",},},
     {"roomId":{"name":"Room17","path":"rooms/Room17/Room17.yy",},},
   ],
