@@ -1,5 +1,6 @@
 deathTimer--
 
+
 if(done==0){
 	vsp = vsp +grv ;
 	// Horizontal collision

@@ -48,8 +48,6 @@ walking = false;
 
 stepTimer = 0;
 
-music = audio_play_sound(snGameMusic, 1, true);
-audio_sound_gain(music, 0, 0);
-audio_sound_gain(music, 0.5, 5000);
+
 
 target = room
