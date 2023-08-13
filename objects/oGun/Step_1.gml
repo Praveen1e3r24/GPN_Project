@@ -17,6 +17,7 @@ if(mouse_check_button(mb_left) && firingdelay<0)
     recoil=4;
 	firingdelay=10;
 	ScreenShake(2,10);
+	audio_play_sound(snBullet,5,false);
 	with(instance_create_layer(x,y,"Bullets",oBullet))
 	{
 

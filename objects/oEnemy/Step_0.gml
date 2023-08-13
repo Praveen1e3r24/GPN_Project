@@ -1,5 +1,5 @@
 // Enemy variables
-var attackRange = 1000;       // The range at which the enemy detects and attacks the player
+var attackRange = 100;       // The range at which the enemy detects and attacks the player
 var attackCooldown = 60;     // Cooldown between attacks in frames
 var damage = 10;
 var isOnGround = false;      // Flag to check if the enemy is on solid ground

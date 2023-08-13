@@ -1,4 +1,4 @@
-// Get Player Input
+ // Get Player Input
 if(hascontrol){
 lKey = keyboard_check(vk_left)  || keyboard_check(ord("A"));
 rKey = keyboard_check(vk_right)|| keyboard_check(ord("D"));
@@ -32,6 +32,7 @@ if (!place_meeting(x, y + 1, oWall)) {
     image_speed = 0;
 
     if (sign(vsp) > 0)
+
         image_index = 0;
 		else if (sign(vsp) = 0)
         image_index = 2;
@@ -39,10 +40,12 @@ if (!place_meeting(x, y + 1, oWall)) {
         image_index = 3;
 } 
 else {
+	 if (sprite_index==sPlayerA) audio_play_sound(snLanding,4,false);
     image_speed = 1;
     if (hsp == 0) {
         sprite_index = sPlayer;
     } else {
+	
         sprite_index = sPlayerR;
     }
 }
@@ -62,7 +65,7 @@ image_xscale=sign(hsp);
 
 // Movement calculations
 if (sprintKey)
-{
+{   
 	spd = min(spd+0.5,sprintSpeed);
 }
 else
