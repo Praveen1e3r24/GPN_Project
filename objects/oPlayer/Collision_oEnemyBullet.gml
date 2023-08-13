@@ -4,7 +4,7 @@
 audio_play_sound(snPlayerHit, 11, false)
 if (hp<=1)
 {
-	with(oGun) instance_destroy();
+	with(oWeapon) instance_destroy();
 	instance_change(oPDead,true);
 }
 else if (damageTimer<=0)

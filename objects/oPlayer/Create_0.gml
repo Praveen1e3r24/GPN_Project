@@ -32,7 +32,15 @@ damageTimer = 0;
 
 
 // Objective
-objText = "";
+if (room == Room1)
+{
+	objText = "Objective: Go to the city's labatory";
+}
+else if (room == Room17)
+{
+	objText = "Objective: Get the vile and exit the building"
+}
+
 objX = 35;
 objY = 100;
 
@@ -48,8 +56,5 @@ walking = false;
 
 stepTimer = 0;
 
-music = audio_play_sound(snGameMusic, 1, true);
-audio_sound_gain(music, 0, 0);
-audio_sound_gain(music, 0.5, 5000);
 
 target = room

@@ -12,10 +12,6 @@ if (hp<=2)
 	draw_sprite_stretched_ext(sHealthOverlay,0,0,0,camera_get_view_width(view_camera[0]),camera_get_view_height(view_camera[0]),c_white,0.5)
 }
 
-if (room == Room4)
-{
-	objText = "Objective: Go to the city's labatory";
-}
 
 cursor_sprite = sCursor;
 window_set_cursor(cr_none);

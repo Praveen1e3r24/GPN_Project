@@ -55,20 +55,20 @@ if(hsp !=0)
 	image_xscale=sign(hsp)*size;
 	image_yscale=size;
 
-if (instance_exists(oPlayer) && hasweapon)
-{
-	if (point_distance(oPlayer.x,oPlayer.y,x,y)<600)
-	{
-		mygun.visible = 1;
-		var dir = sign(oPlayer.x - x);
-		if(dir != 0) 
-			image_xscale = sign(oPlayer.x - x);
-	}
-	else	
-	{
-		mygun.visible = 0;
-	}
-}
+//if (instance_exists(oPlayer) && hasweapon)
+//{
+//	if (point_distance(oPlayer.x,oPlayer.y,x,y)<400)
+//	{
+//		mygun.visible = 1;
+//		var dir = sign(oPlayer.x - x);
+//		if(dir != 0) 
+//			image_xscale = sign(oPlayer.x - x);
+//	}
+//	else	
+//	{
+//		mygun.visible = 0;
+//	}
+//}
 
 
 
