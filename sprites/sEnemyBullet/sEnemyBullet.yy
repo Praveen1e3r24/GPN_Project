@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Youtube_GPN_Practice",
+    "path": "Youtube_GPN_Practice.yyp",
   },
   "preMultiplyAlpha": false,
   "sequence": {

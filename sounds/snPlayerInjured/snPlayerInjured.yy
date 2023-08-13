@@ -19,5 +19,9 @@
   "sampleRate": 44100,
   "soundFile": "snPlayerInjured.mp3",
   "type": 0,
+<<<<<<< HEAD
   "volume": 1.0,
+=======
+  "volume": 0.6,
+>>>>>>> 67f9ef98d262c6f2b0cdf8182dc991f3479c374b
 }

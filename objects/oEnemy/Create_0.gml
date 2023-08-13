@@ -1,10 +1,12 @@
+if(hasweapon)
+{
+ mygun=instance_create_layer(x,y,"Gun",oEnemyGun);
+with(mygun)
+{  
+	
+   owner=other.id
+}
 
-vsp=0;
-grv=0.3;
-walksp=3;
-hsp=walksp;
 
-hp=4;
-flash=0;
-hitfrom=0;
-
+}
+ else mygun= noone;
