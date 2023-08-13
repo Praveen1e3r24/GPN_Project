@@ -44,7 +44,7 @@ if (!place_meeting(x, y + 1, oWall)) {
 	}
 	else
 	{
-		instance_activate_object(oGun);
+		instance_activate_object(oWeapon);
 		sprite_index = sPlayerANoHands;
 		image_speed = 0;
 	    if (sign(vsp) > 0)
