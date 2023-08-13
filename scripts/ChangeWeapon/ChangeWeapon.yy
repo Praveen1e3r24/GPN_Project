@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Script3",
+  "name": "ChangeWeapon",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
